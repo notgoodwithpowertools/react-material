@@ -24380,11 +24380,19 @@ var Base = React.createClass({
         React.createElement(
           'div',
           { className: 'mdl-grid portfolio-max-width' },
-          React.createElement(Card, { image: 'images/carterg.jpeg', busname: 'Carter Grange' }),
-          React.createElement(Card, { image: 'images/juggarnort.jpg', busname: 'Juggarnort' }),
-          React.createElement(Card, { image: 'images/01.jpeg', busname: 'Jassy\'s Caulking' })
+          React.createElement(Card, { image: 'images/carter.jpeg', busname: 'Carter Grange' }),
+          React.createElement(Card, { image: 'images/juggarnort.jpeg', busname: 'Juggarnort' }),
+          React.createElement(Card, { image: 'images/01.jpg', busname: 'Jassy\'s Caulking' }),
+          React.createElement(Card, { image: 'images/carter.jpeg', busname: 'Carter Grange' }),
+          React.createElement(Card, { image: 'images/juggarnort.jpeg', busname: 'Juggarnort' }),
+          React.createElement(Card, { image: 'images/01.jpg', busname: 'Jassy\'s Caulking' }),
+          React.createElement(Card, { image: 'images/01.jpg', busname: 'Jassy\'s Caulking' })
         ),
-        React.createElement(Footer, { text: 'Hello' })
+        React.createElement(
+          'div',
+          null,
+          React.createElement(Footer, { text: 'Hello' })
+        )
       )
     );
   }
@@ -24413,7 +24421,7 @@ var Card = React.createClass({
       { className: "mdl-cell mdl-card mdl-shadow--4dp portfolio-card" },
       React.createElement(
         "div",
-        { className: "mdl-card__media" },
+        { className: "mdl-card__media mycard" },
         React.createElement("img", { className: "article-image mycard", src: this.props.image, alt: "" })
       ),
       React.createElement(

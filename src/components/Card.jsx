@@ -13,7 +13,7 @@ var Card = React.createClass({
 
 
         <div className="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-          <div className="mdl-card__media">
+          <div className="mdl-card__media mycard">
             <img className="article-image mycard" src={this.props.image} alt="" />
           </div>
           <div className="mdl-card__title mytitle">

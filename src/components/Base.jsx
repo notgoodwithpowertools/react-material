@@ -22,13 +22,19 @@ var Base = React.createClass({
         <Drawer />
         <main className="mdl-layout__content">
           <div className="mdl-grid portfolio-max-width">
-            <Card image='images/carterg.jpeg' busname="Carter Grange"/>
-            <Card image='images/juggarnort.jpg' busname="Juggarnort"/>
-            <Card image='images/01.jpeg' busname="Jassy's Caulking"/>
-
+            <Card image='images/carter.jpeg' busname="Carter Grange"/>
+            <Card image='images/juggarnort.jpeg' busname="Juggarnort"/>
+            <Card image='images/01.jpg' busname="Jassy's Caulking"/>
+            <Card image='images/carter.jpeg' busname="Carter Grange"/>
+            <Card image='images/juggarnort.jpeg' busname="Juggarnort"/>
+            <Card image='images/01.jpg' busname="Jassy's Caulking"/>
+            <Card image='images/01.jpg' busname="Jassy's Caulking"/>
 
           </div>
-          <Footer text="Hello"/>
+          <div>
+            <Footer text="Hello"/>
+          </div>
+
         </main>
 
     </div>
