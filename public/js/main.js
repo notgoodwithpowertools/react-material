@@ -24345,7 +24345,8 @@ var React = require('react');
 var Footer = require('./Footer.jsx');
 var Nav = require('./Nav.jsx');
 var Drawer = require('./Drawer.jsx');
-var Card = require('./Card.jsx');
+//var Card = require('./Card.jsx');
+//var Listings = require('./Listings.jsx');
 
 var Base = React.createClass({
   displayName: 'Base',
@@ -24380,13 +24381,7 @@ var Base = React.createClass({
         React.createElement(
           'div',
           { className: 'mdl-grid portfolio-max-width' },
-          React.createElement(Card, { image: 'images/carter.jpeg', busname: 'Carter Grange' }),
-          React.createElement(Card, { image: 'images/juggarnort.jpeg', busname: 'Juggarnort' }),
-          React.createElement(Card, { image: 'images/01.jpg', busname: 'Jassy\'s Caulking' }),
-          React.createElement(Card, { image: 'images/carter.jpeg', busname: 'Carter Grange' }),
-          React.createElement(Card, { image: 'images/juggarnort.jpeg', busname: 'Juggarnort' }),
-          React.createElement(Card, { image: 'images/01.jpg', busname: 'Jassy\'s Caulking' }),
-          React.createElement(Card, { image: 'images/01.jpg', busname: 'Jassy\'s Caulking' })
+          this.props.children
         ),
         React.createElement(
           'div',
@@ -24401,7 +24396,7 @@ var Base = React.createClass({
 
 module.exports = Base;
 
-},{"./Card.jsx":221,"./Drawer.jsx":222,"./Footer.jsx":223,"./Nav.jsx":224,"react":217}],221:[function(require,module,exports){
+},{"./Drawer.jsx":222,"./Footer.jsx":223,"./Nav.jsx":225,"react":217}],221:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -24557,6 +24552,33 @@ var Footer = React.createClass({
 module.exports = Footer;
 
 },{"react":217}],224:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var Card = require('./Card.jsx');
+
+var Listings = React.createClass({
+  displayName: 'Listings',
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      { className: 'mdl-grid portfolio-max-width' },
+      React.createElement(Card, { image: 'images/carter.jpeg', busname: 'Carter Grange' }),
+      React.createElement(Card, { image: 'images/juggarnort.jpeg', busname: 'Juggarnort' }),
+      React.createElement(Card, { image: 'images/01.jpg', busname: 'Jassy\'s Caulking' }),
+      React.createElement(Card, { image: 'images/carter.jpeg', busname: 'Carter Grange' }),
+      React.createElement(Card, { image: 'images/juggarnort.jpeg', busname: 'Juggarnort' }),
+      React.createElement(Card, { image: 'images/01.jpg', busname: 'Jassy\'s Caulking' }),
+      React.createElement(Card, { image: 'images/01.jpg', busname: 'Jassy\'s Caulking' })
+    );
+  }
+
+});
+
+module.exports = Listings;
+
+},{"./Card.jsx":221,"react":217}],225:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -24599,7 +24621,7 @@ var Nav = React.createClass({
 
 module.exports = Nav;
 
-},{"react":217}],225:[function(require,module,exports){
+},{"react":217}],226:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -24632,7 +24654,7 @@ var Page1 = React.createClass({
 
 module.exports = Page1;
 
-},{"react":217}],226:[function(require,module,exports){
+},{"react":217}],227:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -24656,7 +24678,7 @@ var Page2 = React.createClass({
 
 module.exports = Page2;
 
-},{"react":217}],227:[function(require,module,exports){
+},{"react":217}],228:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -24667,17 +24689,21 @@ var Routes = require('./routes.jsx');
 
 ReactDOM.render(Routes, document.getElementById('test1'));
 
-},{"./routes.jsx":228,"react":217,"react-dom":51}],228:[function(require,module,exports){
+},{"./routes.jsx":229,"react":217,"react-dom":51}],229:[function(require,module,exports){
 'use strict';
+
+var _reactRouter = require('react-router');
 
 var React = require('react');
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 
+
 var Base = require('./components/Base.jsx');
 var Page1 = require('./components/Page1.jsx');
 var Page2 = require('./components/Page2.jsx');
+var Listings = require('./components/Listings.jsx');
 
 var Routes = React.createElement(
   Router,
@@ -24685,6 +24711,8 @@ var Routes = React.createElement(
   React.createElement(
     Route,
     { path: '/', component: Base },
+    React.createElement(_reactRouter.IndexRoute, { component: Listings }),
+    React.createElement(Route, { path: '/listings', component: Listings }),
     React.createElement(Route, { path: '/page1', component: Page1 }),
     React.createElement(Route, { path: '/page2', component: Page2 })
   )
@@ -24692,4 +24720,4 @@ var Routes = React.createElement(
 
 module.exports = Routes;
 
-},{"./components/Base.jsx":220,"./components/Page1.jsx":225,"./components/Page2.jsx":226,"react":217,"react-router":81}]},{},[227]);
+},{"./components/Base.jsx":220,"./components/Listings.jsx":224,"./components/Page1.jsx":226,"./components/Page2.jsx":227,"react":217,"react-router":81}]},{},[228]);

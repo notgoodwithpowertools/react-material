@@ -4,7 +4,8 @@ var React = require('react');
 var Footer = require('./Footer.jsx');
 var Nav = require('./Nav.jsx');
 var Drawer = require('./Drawer.jsx');
-var Card = require('./Card.jsx');
+//var Card = require('./Card.jsx');
+//var Listings = require('./Listings.jsx');
 
 var Base = React.createClass({
   render: function() {
@@ -22,15 +23,9 @@ var Base = React.createClass({
         <Drawer />
         <main className="mdl-layout__content">
           <div className="mdl-grid portfolio-max-width">
-            <Card image='images/carter.jpeg' busname="Carter Grange"/>
-            <Card image='images/juggarnort.jpeg' busname="Juggarnort"/>
-            <Card image='images/01.jpg' busname="Jassy's Caulking"/>
-            <Card image='images/carter.jpeg' busname="Carter Grange"/>
-            <Card image='images/juggarnort.jpeg' busname="Juggarnort"/>
-            <Card image='images/01.jpg' busname="Jassy's Caulking"/>
-            <Card image='images/01.jpg' busname="Jassy's Caulking"/>
-
+            {this.props.children}
           </div>
+
           <div>
             <Footer text="Hello"/>
           </div>
