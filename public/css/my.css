@@ -1,0 +1,11 @@
+.my-footer {background-color: #800000}
+
+h1 {color: #800000}
+
+img.article-image.mycard {
+  height: 200px
+}
+
+mdl-card__title.mytitle {
+  height: 250px;
+}
