@@ -14,13 +14,13 @@ Ensure node and npm installed
 create package.json file - npm init
 ### install packages
 ```
-npm install --save react react-dom watchify babelify babel-preset-react browserify
+npm install --save react react-dom watchify babelify babel-preset-react babel-preset-es2015 browserify
 ```
 Update package.json start to launch watchify and enable build -->
 ```
 ...
 "scripts": {
-  "start": "watchify src/main.jsx -v -t [ babelify --presets [ react ] ] -o public/js/main.js",
+  "start": "watchify src/main.jsx -v -t [ babelify --presets [ react es2015 ] ] -o public/js/main.js",
 ...
 }
 ```

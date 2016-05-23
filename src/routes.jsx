@@ -8,6 +8,7 @@ var Base = require('./components/Base.jsx');
 var Page1 = require('./components/Page1.jsx');
 var Page2 = require('./components/Page2.jsx');
 var Listings = require('./components/Listings.jsx');
+var Listings = require('./components/Listings.jsx');
 
 
 var Routes = (

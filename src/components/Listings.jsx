@@ -1,24 +1,37 @@
 var React = require('react');
+var ListItem = require('./ListItem.jsx');
+var HTTP = require('../services/httpservice');
 var Card = require('./Card.jsx');
 
 var Listings = React.createClass({
-  render: function(){
-    return (
+    getInitialState: function() {
+        return {businesses:[]};
+    },
+    componentWillMount: function() {
+        HTTP.get('/bus')
+        .then(function(data) {
+            console.log("Data:...", data);
+            this.setState({businesses: data});
+        }.bind(this));
+    },
+    render: function() {
+       var createCard = function(item, index) {
+          return <Card image={item.image} busname={item.busname} key={index}/>;
+        };
 
-      <div className="mdl-grid portfolio-max-width">
-        <Card image='images/carter.jpeg' busname="Carter Grange"/>
-        <Card image='images/juggarnort.jpeg' busname="Juggarnort"/>
-        <Card image='images/01.jpg' busname="Jassy's Caulking"/>
-        <Card image='images/carter.jpeg' busname="Carter Grange"/>
-        <Card image='images/juggarnort.jpeg' busname="Juggarnort"/>
-        <Card image='images/01.jpg' busname="Jassy's Caulking"/>
-        <Card image='images/01.jpg' busname="Jassy's Caulking"/>
 
-      </div>
+        var listItems = this.state.businesses.map(function(item) {
+            return <ListItem key={item.id} ingredient={item.busname} />;
+        });
 
-    );
-  }
+        return (
 
+          <div className="mdl-grid portfolio-max-width">
+            {this.state.businesses.map(createCard)}
+          </div>
+
+        );
+    }
 });
 
 module.exports = Listings;
