@@ -24783,6 +24783,16 @@ var Drawer = require('./Drawer.jsx');
 //var Card = require('./Card.jsx');
 //var Listings = require('./Listings.jsx');
 
+/*
+<div className="mdl-layout-header mdl-layout--small-screen-only">
+  <button id="demo-menu-lower-left "
+    className="mdl-button mdl-js-button mdl-button--icon">
+    <i className="material-icons">more_vert</i>
+  </button>
+
+</div>
+*/
+
 var Base = React.createClass({
   displayName: 'Base',
 
@@ -24817,12 +24827,12 @@ var Base = React.createClass({
           'div',
           { className: 'mdl-grid portfolio-max-width' },
           this.props.children
-        ),
-        React.createElement(
-          'div',
-          null,
-          React.createElement(Footer, { text: 'Hello' })
         )
+      ),
+      React.createElement(
+        'div',
+        null,
+        React.createElement(Footer, { text: 'Hello' })
       )
     );
   }
@@ -24831,56 +24841,51 @@ var Base = React.createClass({
 
 module.exports = Base;
 
-},{"./Drawer.jsx":223,"./Footer.jsx":224,"./Nav.jsx":227,"react":217}],222:[function(require,module,exports){
-"use strict";
+},{"./Drawer.jsx":224,"./Footer.jsx":225,"./Nav.jsx":229,"react":217}],222:[function(require,module,exports){
+'use strict';
 
 var React = require('react');
+var InboxBadge = require('./InboxBadge.jsx');
+var CardActionsBox = require('./CardActionsBox.jsx');
 
 var Card = React.createClass({
-  displayName: "Card",
+  displayName: 'Card',
 
 
   render: function render() {
+
     //Currently not using imgStyle
     var imgStyle = {
       //backgroundSize: '75px 75px'
     };
 
     return React.createElement(
-      "div",
-      { className: "mdl-cell mdl-card mdl-shadow--4dp portfolio-card" },
+      'div',
+      { className: 'mdl-cell mdl-card mdl-shadow--4dp portfolio-card' },
       React.createElement(
-        "div",
-        { className: "mdl-card__media mycard" },
-        React.createElement("img", { className: "article-image mycard", src: this.props.image, alt: "" })
+        'div',
+        { className: 'mdl-card__media mycard' },
+        React.createElement('img', { className: 'article-image mycard', src: this.props.image, alt: '' })
       ),
       React.createElement(
-        "div",
-        { className: "mdl-card__title mytitle" },
+        'div',
+        { className: 'mdl-card__title mytitle' },
         React.createElement(
-          "h3",
-          { className: "mdl-card__title-text" },
+          'h3',
+          { className: 'mdl-card__title-text' },
           this.props.busname
         )
       ),
       React.createElement(
-        "div",
-        { className: "mdl-card__supporting-text" },
+        'div',
+        { className: 'mdl-card__supporting-text' },
         React.createElement(
-          "p",
+          'p',
           null,
-          "At Carter Grange we are always hdgasdsjdhdskjdhkj h dhsdkashd khdjh sasakdjashkdj on the lookout for trades that care about their work."
+          'At Carter Grange we are always hdgasdsjdhdskjdhkj h dhsdkashd khdjh sasakdjashkdj on the lookout for trades that care about their work.'
         )
       ),
-      React.createElement(
-        "div",
-        { className: "mdl-card__actions mdl-card--border" },
-        React.createElement(
-          "a",
-          { className: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent", href: "portfolio-example01.html" },
-          "Read more"
-        )
-      )
+      React.createElement(CardActionsBox, { jobscount: this.props.jobscount })
     );
   }
 
@@ -24888,7 +24893,42 @@ var Card = React.createClass({
 
 module.exports = Card;
 
-},{"react":217}],223:[function(require,module,exports){
+},{"./CardActionsBox.jsx":223,"./InboxBadge.jsx":226,"react":217}],223:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var InboxBadge = require('./InboxBadge.jsx');
+
+var CardActionsBox = React.createClass({
+  displayName: 'CardActionsBox',
+
+
+  render: function render() {
+
+    return React.createElement(
+      'div',
+      { className: 'mdl-grid mdl-card__actions mdl-card--border' },
+      React.createElement(
+        'div',
+        { className: 'mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone' },
+        React.createElement(
+          'a',
+          { className: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent', href: 'portfolio-example01.html' },
+          'Read more'
+        )
+      ),
+      React.createElement(
+        'div',
+        { className: 'mdl-cell mdl-cell--9-col mdl-cell--6-col-tablet mdl-cell--3-col-phone' },
+        React.createElement(InboxBadge, { jobscount: this.props.jobscount })
+      )
+    );
+  }
+});
+
+module.exports = CardActionsBox;
+
+},{"./InboxBadge.jsx":226,"react":217}],224:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -24931,7 +24971,7 @@ var Drawer = React.createClass({
 
 module.exports = Drawer;
 
-},{"react":217}],224:[function(require,module,exports){
+},{"react":217}],225:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -24986,34 +25026,37 @@ var Footer = React.createClass({
 
 module.exports = Footer;
 
-},{"react":217}],225:[function(require,module,exports){
-'use strict';
+},{"react":217}],226:[function(require,module,exports){
+"use strict";
 
 var React = require('react');
 
-var ListItem = React.createClass({
-    displayName: 'ListItem',
+var InboxBadge = React.createClass({
+    displayName: "InboxBadge",
+
 
     render: function render() {
+
         return React.createElement(
-            'li',
-            null,
+            "div",
+            { className: "inbox-badge" },
             React.createElement(
-                'h4',
-                null,
-                this.props.ingredient
-            )
+                "a",
+                { className: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent", href: "portfolio-example01.html" },
+                "Jobs"
+            ),
+            React.createElement("div", { className: "material-icons mdl-badge mdl-badge--overlap", "data-badge": this.props.jobscount })
         );
     }
 });
 
-module.exports = ListItem;
+module.exports = InboxBadge;
 
-},{"react":217}],226:[function(require,module,exports){
+},{"react":217}],227:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
-var ListItem = require('./ListItem.jsx');
+//var ListItem = require('./ListItem.jsx');
 var HTTP = require('../services/httpservice');
 var Card = require('./Card.jsx');
 
@@ -25031,12 +25074,8 @@ var Listings = React.createClass({
     },
     render: function render() {
         var createCard = function createCard(item, index) {
-            return React.createElement(Card, { image: item.image, busname: item.busname, key: index });
+            return React.createElement(Card, { image: item.image, busname: item.busname, key: index, jobscount: item.jobs });
         };
-
-        var listItems = this.state.businesses.map(function (item) {
-            return React.createElement(ListItem, { key: item.id, ingredient: item.busname });
-        });
 
         return React.createElement(
             'div',
@@ -25048,7 +25087,87 @@ var Listings = React.createClass({
 
 module.exports = Listings;
 
-},{"../services/httpservice":232,"./Card.jsx":222,"./ListItem.jsx":225,"react":217}],227:[function(require,module,exports){
+},{"../services/httpservice":234,"./Card.jsx":222,"react":217}],228:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+var Login = React.createClass({
+	displayName: "Login",
+
+
+	render: function render() {
+
+		//Currently not using imgStyle
+		var imgStyle = {
+			//backgroundSize: '75px 75px'
+		};
+
+		return React.createElement(
+			"div",
+			{ className: "mdl-layout mdl-js-layout mdl-color--grey-100" },
+			React.createElement(
+				"main",
+				{ className: "mdl-layout__content" },
+				React.createElement(
+					"div",
+					{ className: "mdl-card mdl-shadow--6dp" },
+					React.createElement(
+						"div",
+						{ className: "mdl-card__title mdl-color--primary mdl-color-text--white" },
+						React.createElement(
+							"h2",
+							{ className: "mdl-card__title-text" },
+							"Acme Co."
+						)
+					),
+					React.createElement(
+						"div",
+						{ className: "mdl-card__supporting-text" },
+						React.createElement(
+							"form",
+							{ action: "#" },
+							React.createElement(
+								"div",
+								{ className: "mdl-textfield mdl-js-textfield" },
+								React.createElement("input", { className: "mdl-textfield__input", type: "text", id: "username" }),
+								React.createElement(
+									"label",
+									{ className: "mdl-textfield__label", htmlFor: "username" },
+									"Username"
+								)
+							),
+							React.createElement(
+								"div",
+								{ className: "mdl-textfield mdl-js-textfield" },
+								React.createElement("input", { className: "mdl-textfield__input", type: "password", id: "userpass" }),
+								React.createElement(
+									"label",
+									{ className: "mdl-textfield__label", htmlFor: "userpass" },
+									"Password"
+								)
+							)
+						)
+					),
+					React.createElement(
+						"div",
+						{ className: "mdl-card__actions mdl-card--border" },
+						React.createElement(
+							"button",
+							{ className: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" },
+							"Log in"
+						)
+					)
+				)
+			)
+		);
+	}
+
+});
+
+module.exports = Login;
+
+},{"react":217}],229:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -25091,7 +25210,7 @@ var Nav = React.createClass({
 
 module.exports = Nav;
 
-},{"react":217}],228:[function(require,module,exports){
+},{"react":217}],230:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -25124,7 +25243,7 @@ var Page1 = React.createClass({
 
 module.exports = Page1;
 
-},{"react":217}],229:[function(require,module,exports){
+},{"react":217}],231:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -25148,7 +25267,7 @@ var Page2 = React.createClass({
 
 module.exports = Page2;
 
-},{"react":217}],230:[function(require,module,exports){
+},{"react":217}],232:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -25159,7 +25278,7 @@ var Routes = require('./routes.jsx');
 
 ReactDOM.render(Routes, document.getElementById('test1'));
 
-},{"./routes.jsx":231,"react":217,"react-dom":51}],231:[function(require,module,exports){
+},{"./routes.jsx":233,"react":217,"react-dom":51}],233:[function(require,module,exports){
 'use strict';
 
 var _reactRouter = require('react-router');
@@ -25174,7 +25293,7 @@ var Base = require('./components/Base.jsx');
 var Page1 = require('./components/Page1.jsx');
 var Page2 = require('./components/Page2.jsx');
 var Listings = require('./components/Listings.jsx');
-var Listings = require('./components/Listings.jsx');
+var Login = require('./components/Login.jsx');
 
 var Routes = React.createElement(
   Router,
@@ -25183,6 +25302,7 @@ var Routes = React.createElement(
     Route,
     { path: '/', component: Base },
     React.createElement(_reactRouter.IndexRoute, { component: Listings }),
+    React.createElement(Route, { path: '/login', component: Login }),
     React.createElement(Route, { path: '/listings', component: Listings }),
     React.createElement(Route, { path: '/page1', component: Page1 }),
     React.createElement(Route, { path: '/page2', component: Page2 })
@@ -25191,7 +25311,7 @@ var Routes = React.createElement(
 
 module.exports = Routes;
 
-},{"./components/Base.jsx":221,"./components/Listings.jsx":226,"./components/Page1.jsx":228,"./components/Page2.jsx":229,"react":217,"react-router":81}],232:[function(require,module,exports){
+},{"./components/Base.jsx":221,"./components/Listings.jsx":227,"./components/Login.jsx":228,"./components/Page1.jsx":230,"./components/Page2.jsx":231,"react":217,"react-router":81}],234:[function(require,module,exports){
 'use strict';
 
 var Fetch = require('whatwg-fetch');
@@ -25208,4 +25328,4 @@ var service = {
 
 module.exports = service;
 
-},{"whatwg-fetch":220}]},{},[230]);
+},{"whatwg-fetch":220}]},{},[232]);

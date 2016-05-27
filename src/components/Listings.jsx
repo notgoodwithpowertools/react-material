@@ -1,5 +1,5 @@
 var React = require('react');
-var ListItem = require('./ListItem.jsx');
+//var ListItem = require('./ListItem.jsx');
 var HTTP = require('../services/httpservice');
 var Card = require('./Card.jsx');
 
@@ -16,13 +16,8 @@ var Listings = React.createClass({
     },
     render: function() {
        var createCard = function(item, index) {
-          return <Card image={item.image} busname={item.busname} key={index}/>;
+          return <Card image={item.image} busname={item.busname} key={index} jobscount={item.jobs}/>;
         };
-
-
-        var listItems = this.state.businesses.map(function(item) {
-            return <ListItem key={item.id} ingredient={item.busname} />;
-        });
 
         return (
 

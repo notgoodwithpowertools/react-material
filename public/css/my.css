@@ -9,3 +9,7 @@ img.article-image.mycard {
 mdl-card__title.mytitle {
   height: 250px;
 }
+
+.inbox-badge {
+  text-align: right;
+}

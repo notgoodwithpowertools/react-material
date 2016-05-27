@@ -5,6 +5,7 @@ var Nav = React.createClass({
     return (
 
       <div className="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
+
         <nav className="mdl-navigation mdl-typography--body-1-force-preferred-font">
           <a className="mdl-navigation__link is-active" href="index.html">Portfolio</a>
           <a className="mdl-navigation__link" href="blog.html">Blog</a>
