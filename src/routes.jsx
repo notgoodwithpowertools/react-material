@@ -15,7 +15,6 @@ var Routes = (
 
     <Route path="/" component={Base}>
       <IndexRoute component={Listings} />
-      <Route path="/login" component={Login}/>
       <Route path="/listings" component={Listings}/>
       <Route path="/page1" component={Page1}/>
       <Route path="/page2" component={Page2}/>

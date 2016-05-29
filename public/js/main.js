@@ -25302,7 +25302,6 @@ var Routes = React.createElement(
     Route,
     { path: '/', component: Base },
     React.createElement(_reactRouter.IndexRoute, { component: Listings }),
-    React.createElement(Route, { path: '/login', component: Login }),
     React.createElement(Route, { path: '/listings', component: Listings }),
     React.createElement(Route, { path: '/page1', component: Page1 }),
     React.createElement(Route, { path: '/page2', component: Page2 })
@@ -25315,7 +25314,7 @@ module.exports = Routes;
 'use strict';
 
 var Fetch = require('whatwg-fetch');
-var baseUrl = 'http://localhost:8081';
+var baseUrl = 'http://172.16.114.144:8081';
 
 var service = {
     get: function get(url) {

@@ -13,3 +13,8 @@ mdl-card__title.mytitle {
 .inbox-badge {
   text-align: right;
 }
+
+/* Only used for mat.html */
+.content-grid {
+  max-width: 960px;
+}
