@@ -2,13 +2,23 @@
 
 h1 {color: #800000}
 
+/*
+img.article-image {
+  height: 100%
+}
+*/
+
 img.article-image.mycard {
-  height: 200px
+  height: 100%
 }
 
+img.article-image.jobcard {
+  height: 100%
+}
+/*
 mdl-card__title.mytitle {
   height: 250px;
-}
+}*/
 
 .inbox-badge {
   text-align: right;

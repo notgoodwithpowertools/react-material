@@ -22,7 +22,7 @@ var Base = React.createClass({
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header className="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
-          
+
           <div className="mdl-layout__header-row portfolio-logo-row">
 
 
@@ -34,17 +34,19 @@ var Base = React.createClass({
           <Nav />
         </header>
         <Drawer />
+
         <main className="mdl-layout__content">
+          
           <div className="mdl-grid portfolio-max-width">
             {this.props.children}
           </div>
 
-
+          <div>
+            <Footer text="Hello"/>
+          </div>
 
         </main>
-        <div>
-          <Footer text="Hello"/>
-        </div>
+
     </div>
 
     );

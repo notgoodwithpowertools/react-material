@@ -8,7 +8,9 @@ var Base = require('./components/Base.jsx');
 var Page1 = require('./components/Page1.jsx');
 var Page2 = require('./components/Page2.jsx');
 var Listings = require('./components/Listings.jsx');
+var Jobs = require('./components/Jobs.jsx');
 var Login= require('./components/Login.jsx');
+var JobForm = require('./components/JobForm.jsx');
 
 var Routes = (
   <Router>
@@ -18,6 +20,8 @@ var Routes = (
       <Route path="/listings" component={Listings}/>
       <Route path="/page1" component={Page1}/>
       <Route path="/page2" component={Page2}/>
+      <Route path="/jobs" component={Jobs}/>
+      <Route path="/postjob" component={JobForm}/>
 
     </Route>
 
