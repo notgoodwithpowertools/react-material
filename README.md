@@ -49,3 +49,13 @@ ReactDOM.render(<TestComponent title="Test" />, document.getElementById('test1')
 var React = require('react');
 var ReactDOM = require('react-dom');
 ```
+# Redux
+## Installing Redux DevTools
+```
+npm install --save-dev redux-devtools
+npm install --save-dev redux-devtools-log-monitor
+```
+- Create [DevTools.js](https://github.com/gaearon/redux-devtools/blob/master/docs/Walkthrough.md)
+- Import DevTools `import DevTools from './containers/DevTools';`
+- Instrument `const todosStore = createStore(todosApp, DevTools.instrument());`
+- Include in Provider `ReactDOM.render(<Provider store={todosStore}><div><ToDoApp /><DevTools /></div></Provider>, document.getElementById('todos'));`
