@@ -14,13 +14,13 @@ Ensure node and npm installed
 create package.json file - npm init
 ### install packages
 ```
-npm install --save react react-dom watchify babelify babel-preset-react browserify
+npm install --save react react-dom watchify babelify babel-preset-react babel-preset-es2015 browserify
 ```
 Update package.json start to launch watchify and enable build -->
 ```
 ...
 "scripts": {
-  "start": "watchify src/main.jsx -v -t [ babelify --presets [ react ] ] -o public/js/main.js",
+  "start": "watchify src/main.jsx -v -t [ babelify --presets [ react es2015 ] ] -o public/js/main.js",
 ...
 }
 ```
@@ -49,3 +49,13 @@ ReactDOM.render(<TestComponent title="Test" />, document.getElementById('test1')
 var React = require('react');
 var ReactDOM = require('react-dom');
 ```
+# Redux
+## Installing Redux DevTools
+```
+npm install --save-dev redux-devtools
+npm install --save-dev redux-devtools-log-monitor
+```
+- Create [DevTools.js](https://github.com/gaearon/redux-devtools/blob/master/docs/Walkthrough.md)
+- Import DevTools `import DevTools from './containers/DevTools';`
+- Instrument `const todosStore = createStore(todosApp, DevTools.instrument());`
+- Include in Provider `ReactDOM.render(<Provider store={todosStore}><div><ToDoApp /><DevTools /></div></Provider>, document.getElementById('todos'));`
